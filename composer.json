@@ -1,6 +1,6 @@
 {
   "name": "rob-lester-jr04/eloquent-sales-force",
-  "version": "2.7.6",
+  "version": "2.7.7",
   "description": "An eloquent model data source for Salesforce",
   "license": "MIT",
   "keywords": [

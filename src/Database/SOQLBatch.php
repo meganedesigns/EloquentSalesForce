@@ -46,7 +46,7 @@ class SOQLBatch extends Collection
         ];
     }
 
-    public function push(...$builders)
+    public function push($builders)
     {
         foreach ($builders as $builder) {
             $this->items[] = $builder;
