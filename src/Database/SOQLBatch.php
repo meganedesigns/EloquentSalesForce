@@ -48,13 +48,10 @@ class SOQLBatch extends Collection
 
     public function push(...$builders)
     {
-        $tempColl = null;
         foreach ($builders as $builder) {
-            $tempColl = tap($this, function($collection) use ($builder) {
-                $collection->batch($builder);
-            });
+            $this->items[] = $builder;
         }
-        return $tempColl ?: $this;
+        return $this;
     }
 
     /*public function put($tag, $builder)
