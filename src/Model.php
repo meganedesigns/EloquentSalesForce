@@ -21,6 +21,7 @@ abstract class Model extends EloquentModel
 		'attributes',
 	];
 
+	public $custom_headers = [];
 	public $columns = [];
 
 	/**
@@ -88,12 +89,14 @@ abstract class Model extends EloquentModel
 		$method = $this->sfMethod();
 
 		$body = $this->writeableAttributes(['Id', 'attributes']);
+		$headers = $this->custom_headers ?: null;
 
 		try {
 			/** @scrutinizer ignore-call */
 			$result = SObjects::sobjects($object, [
 				'method' => $method,
-				'body' => $body
+				'body' => $body,
+				'headers' => $headers,
 			]);
 			SObjects::log("SOQL $method $object", $body);
 
