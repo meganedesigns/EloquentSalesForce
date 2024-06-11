@@ -103,7 +103,7 @@ class SOQLConnection extends Connection
 		$bindings = array_map(function($item) {
 			try {
 				if (!$this->isSalesForceId($item) && strtotime($item) !== false) {
-					return $item;
+					return "'$item'";
 				}
 			} catch (\Exception $e) {
 				if (is_int($item) || is_float($item)) {
